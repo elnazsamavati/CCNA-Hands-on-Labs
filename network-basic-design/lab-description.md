@@ -1,4 +1,4 @@
-Network Basic Design Lab
+# Network Basic Design Lab
 
 Overview
 This lab was created as part of my CCNA hands-on practice using Cisco Packet Tracer.
