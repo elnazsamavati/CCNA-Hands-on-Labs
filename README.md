@@ -9,9 +9,9 @@ I update this repository weekly with new labs and improvements.
 
 ## Labs
 * Week 1:
-  * VLAN-Router-on-a-Stick-Lab
+  * Name: VLAN-Router-on-a-Stick-Lab
   * Topics: VLAN, Router-on-a-Stick, IEEE 802.1Q Trunking, EtherChannel (LACP), Rapid Spanning Tree Protocol, SSH Remote Management, DHCP, PortFast, BPDU Guard
-  * Tools: Cisco Packet Tracer
+  * Tool: Cisco Packet Tracer
 
 *(More labs will be added over time, covering broader CCNA topics and more complex scenarios.)*
 
