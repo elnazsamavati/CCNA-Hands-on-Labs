@@ -1,5 +1,6 @@
 # CCNA Multi-Site Enterprise Lab
 
+![Topology](topology.png)
 This project demonstrates a multi-site enterprise network implemented in Cisco Packet Tracer. Two branch offices (Shiraz and Tehran) are connected through a WAN link while providing VLAN segmentation, inter-VLAN routing, and secure remote management.
 
 ---
