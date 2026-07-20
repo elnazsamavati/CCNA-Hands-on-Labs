@@ -1,0 +1,75 @@
+=================================================
+SW01-Tabriz Configuration
+=================================================
+
+Hostname
+-------------------------------------------------
+hostname SW01-Tabriz
+
+
+=================================================
+Security
+=================================================
+username admin secret 123
+enable secret 123
+
+line console 0
+ login local
+ exit
+
+line vty 0 15
+ login local
+ transport input ssh
+ exit
+
+ip domain-name farkiantech.local
+crypto key generate rsa modulus 2048
+ip ssh version 2
+service password-encryption
+
+
+=================================================
+VLAN Configuration
+=================================================
+vlan 10
+ name IT
+
+vlan 20
+ name Management
+
+
+=================================================
+Access Ports (Edge Devices)
+=================================================
+interface range FastEthernet 0/1-2
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree bpduguard enable
+ spanning-tree portfast
+ exit
+
+
+=================================================
+Management Interface (SVI)
+=================================================
+interface vlan 20
+ ip address 172.17.20.1 255.255.255.0
+ no shutdown
+ exit
+
+ip default-gateway 172.17.20.254
+
+
+=================================================
+Uplink to Router
+=================================================
+interface GigabitEthernet 0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20
+ exit
+
+
+=================================================
+Save Configuration
+=================================================
+do write memory

@@ -1,0 +1,68 @@
+=================================================
+SW02-Tehran Configuration
+=================================================
+
+Hostname
+-------------------------------------------------
+hostname SW02-Tehran
+
+
+=================================================
+Security
+=================================================
+username admin secret 123
+enable secret 123
+
+line console 0
+ login local
+ exit
+
+line vty 0 15
+ login local
+ transport input ssh
+ exit
+
+ip domain-name farkiantech.local
+crypto key generate rsa modulus 2048
+ip ssh version 2
+service password-encryption
+
+
+=================================================
+VTP Client Configuration
+=================================================
+vtp mode client
+vtp password 1234qwer
+
+
+=================================================
+EtherChannel (LACP)
+=================================================
+interface range FastEthernet 0/1-2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+ channel-group 1 mode passive
+ exit
+
+interface range FastEthernet 0/3-4
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+ channel-group 2 mode desirable
+ exit
+
+
+=================================================
+Management Interface (SVI)
+=================================================
+interface vlan 40
+ ip address 172.16.40.2 255.255.255.0
+ no shutdown
+ exit
+
+ip default-gateway 172.16.40.254
+
+
+=================================================
+Save Configuration
+=================================================
+do write memory
